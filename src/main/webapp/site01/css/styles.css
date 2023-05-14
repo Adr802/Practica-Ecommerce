@@ -1,0 +1,200 @@
+/*HEADER*/
+header{
+    background-color: #166088;
+    display: flex;
+    align-items: center;
+   	justify-content: space-around;
+   	padding-left: 50px;
+   	padding-right: 50px;
+   	flex-direction: row;
+    font-family: Arial;	
+    position: fixed;
+    top: 0px;
+    width:100%;
+    transform: translateZ(20px);
+}
+
+header img{
+	width: 5%;
+}
+header a{
+	text-decoration: none;
+	color: white;
+}
+.menu a:hover{
+    background-color: white;
+    border-radius: 6px; 
+    padding: 10px;
+    color: #166088;
+    
+}
+.menu{
+padding: 10px 5px;
+}
+
+  
+nav a {
+    padding: 10px;
+}
+
+
+#titulo{
+    color: rgb(214, 224, 220);
+    text-align: center;
+    font-size: 1.5em;
+}
+
+/*BODY*/
+
+
+.tproductos{
+	padding: 50px;
+	border-color: aqua;
+}
+.tproductos th{
+	background-color: #4a6fa5;
+}
+.tproductos img{
+	border-radius: 20px;
+}
+
+th,td{
+	padding:20px;
+	text-align: center;
+}
+tr:nth-child(even){
+	background-color: #c0d6df;
+}
+tr:hover {
+  background-color: #e6e6e6; 
+}
+
+/*FOOTER*/
+.logo-footer{
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+}
+footer {
+	width: 100%;
+    background-color: #166088;
+  	margin-top: auto;
+}
+#div_logos{
+	display: flex;
+	align-content: center;
+	justify-content: center;
+}
+
+
+/*ESTILO DEL CATALOGO*/
+
+.present_product{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+.tarjeta_pro{
+	background-color: #4a6fa5;
+    border-radius: 10px;
+    text-align: center;
+    display: inline-block;
+    transition: all 250ms ease-out;  
+    max-height: 400px;
+    max-width: 250px;
+    box-shadow: 0px 0px 10px #4f6d7a;
+    margin: 20px;
+}
+.tarjeta_pro:hover{
+	transform: translate(-5%,-3%);
+}
+.tarjeta_pro img{
+	 width: 100%;
+	 height: 250px;
+}
+.tarjeta_pro h3{
+	padding-left: 5px;
+	padding-right: 5px; 
+	color:white;
+	
+}
+.tarjeta_pro p{
+	color:white;
+}
+#tit_catalogo{
+	margin-top: 100px;
+}
+
+
+
+
+
+
+
+
+
+
+.login{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	padding: 50px;
+}
+
+.login td{
+	text-align: center;
+}
+
+body{
+    background-color: #eaf9ff;
+}
+
+#mision{
+	padding-right: 20px;
+}
+
+h2{
+    color: rgba(7, 46, 31, 0.76);
+    font-family: Arial;
+    text-align: center;
+    font-size: 60px;
+    font-style: italic;
+}
+
+#produc_tabla{
+	width: 100%;
+	display: flex;
+	justify-content: center;	
+}
+.table_center{
+	display: flex;
+	justify-content: center;	
+	padding: 100px;
+}
+#parrafo{
+	text-align: justify;
+}
+.agrupar{
+    display: flex;
+    margin: auto;
+    width: 1000px;
+    padding-top: 100px;
+    height: auto;
+}
+#formulario{
+	displargb:(128, 255, 0)lex;
+	justify-content: center;
+	align-items: center;
+}
+/*DISEÑO DEL FOCUS DE REGISTRO*/
+:focus {
+  outline: none;
+}
+
+/* Estilo del borde del focus */
+:focus-visible {
+  outline: 2px solid rgba(0, 0, 255, 0.5);
+  outline-offset: 2px;
+  border-radius: 1px;
+}
