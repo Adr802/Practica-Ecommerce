@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8" session="true" import="java.time.LocalDate"%>
 <html lang="es">
 <head>
 <meta charset="utf-8">
@@ -22,59 +24,52 @@
 			</nav>
 		</header>
 
-			<section>
-				<form action="respuesta.jsp" method="post" id="formulario" class="table_center">
-					<table border=1>
-						<tr>
-							<td>Nombre:</td>
-							<td><input type="text" name="txtNombre" /></td>
-						</tr>
-						<tr>
-							<td>C�dula:</td>
-							<td><input type="text" name="txtCedula" maxlength="10" /></td>
-						</tr>
-						<tr>
-							<td>Estado Civil:</td>
-							<td><select name="cmbECivil">
-									<option value="Soltero">Soltero</option>
-						  			<option value="Casado">Casado</option>
-									<option value="Divorciado">Divorciado</option>
-									<option value="Viudo">Viudo</option>
-							</select></td>
-						</tr>
-						<tr>
-							<td>Lugar de residencia:</td>
-							<td><input type="radio" name="rdResidencia" value="Sur" />Sur
-								<input type="radio" name="rdResidencia" value="Norte" />Norte <input
-								type="radio" name="rdResidencia" value="Centro" />Centro</td>
-						</tr>
-						<tr>
-							<td>Foto:</td>
-							<td><input type="file" name="fileFoto"
-								accept=".jpg, .jpeg, .png" /></td>
-						</tr>
-						<tr>
-							<td>Mes y a�o de nacimiento:</td>
-							<td><input type="date" name="fecha" /></td>
-						</tr>
-						<tr>
-							<td>Color favorito:</td>
-							<td><input type="color" name="colorFavorito" /></td>
-						</tr>
-						<tr>
-							<td><input type="submit" /></td>
-							<td><input type="reset" /></td>
-						</tr>
-					</table>
-				</form>
-			</section>
+		<div class="table_center">
+			<form action="respuesta.jsp" method="post" id="registro-form">
+				<div>
+					Nombre: <input type="text" name="txtNombre"  />
+				</div>
+				<div>
+					Cédula: <input type="text" name="txtCedula" maxlength="10" />
+				</div>
+
+				<div>
+					Usuario: <input type="text" name="txtUsuario"  />
+				</div>
+
+				<div>
+					Contraseña: <input type="password" name="txtPass" />
+				</div>
+
+				<div>
+					Mes y año de nacimiento:
+					<input type="date" name="fecha" max="<%= LocalDate.now() %>"
+						required="required" />
+				</div>
+
+				<div>
+					Correo:<input type="text" name="txtCorreo"  />
+					
+				</div>
+
+				<div>
+					Direccion:<input type="text" name="txtDireccion"  />
+					
+				</div>
+
+				<div>
+					<input type="submit" value="Registrarse" /> <input type="reset" />
+				</div>
+
+			</form>
+		</div>
 		<footer>
 			<div id="div_logos">
 				<a href="https://www.facebook.com/" target="_blank"><img
 					src="img/facebook.png" class="logo-footer"></a> <a
 					href="https://www.instagram.com/" target="_blank"><img
 					src="img/instagram.png" class="logo-footer"></a> <a
-					href="https://wa.me/593986987431?text=¡Hola!%20Quiero%20información%20sobre%20un%20producto."
+					href="https://wa.me/593986987431?text=Â¡Hola!%20Quiero%20informaciÃ³n%20sobre%20un%20producto."
 					target="_blank"><img src="img/whatsapp.png" class="logo-footer"></a>
 				<a href="https://www.tiktok.com/es/" target="_blank"><img
 					src="img/tiktok.png" class="logo-footer"></a>

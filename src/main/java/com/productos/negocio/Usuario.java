@@ -16,7 +16,7 @@ public class Usuario {
 	}
 	public boolean verificarUsuario(String nlogin, String nclave) {
 		boolean respuesta=false;
-		String sentencia= "Select * from tb_usuario where login_us='"+nlogin+
+		String sentencia= "Select * from tb_usuario where username_us='"+nlogin+
 				"' and clave_us='"+nclave+"';";
 		//System.out.print(sentencia);
 		try
@@ -29,7 +29,9 @@ public class Usuario {
 				respuesta=true;
 				this.setLogin(nlogin);
 				this.setClave(nclave);
-				this.setPerfil(rs.getInt(6));
+				int n = rs.getInt(7); // Obtener el valor entero
+				Integer p = Integer.valueOf(n); // Convertir int a Integer usando autoboxing
+				this.setPerfil(p); // Asignar el valor a la propiedad 'perfil'
 				this.setNombre(rs.getString(2));
 			}
 			else
@@ -45,6 +47,45 @@ public class Usuario {
 		return respuesta;
 	}
 	
+	public boolean verificarExistencia(String ced) {
+		boolean resp=true;
+		String sentencia= "Select cedula_us from tb_usuario";
+		try
+		{
+			ResultSet rs;
+			Conexion clsCon=new Conexion();
+			rs=clsCon.Consulta(sentencia);
+			while(rs.next())
+			{
+				System.out.println(rs.getString(1));
+				if(ced.equals(rs.getString(1))) {
+					resp=false;
+				}
+			}
+		}
+		catch(Exception ex)
+		{
+			System.out.println( ex.getMessage());
+		}
+		return resp;
+	}
+	
+	public void insertarUsuario(String nombre, String ced, String usuario, String clave, String edad, String correo, String direccion) {
+		String sentencia="INSERT INTO public.tb_usuario(\r\n"
+				+ "nombre_us, cedula_us, username_us, clave_us, edad_us, id_per, correo_us, direccion_us) "
+				+ "values(" +"'"+ nombre + "',"
+						+"'"+ced +"',"
+						+"'"+usuario+"',"
+						+"'"+clave+"',"
+						+edad+","
+						+"2,"
+						+"'"+correo+"',"
+						+"'"+direccion+"'"
+						+ ");";
+		Conexion clsCon=new Conexion();
+		String resu = clsCon.Ejecutar(sentencia);
+		System.out.println(resu);
+	}
 	
 	public String getNombre() {
 		return nombre;

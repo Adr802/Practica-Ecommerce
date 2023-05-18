@@ -15,24 +15,43 @@ public class Pagina {
 
 	public String mostrarMenu(int nperfil) {
 		{
-			String menu="<ul>";
-			String sql="	SELECT * FROM tb_pagina pag, tb_perfil per, \"tb_perfilPagina\" pper WHERE pag.id_pag=pper.id_pag AND pper.id_per=per.id_per AND pper.id_per="+nperfil+";";
-					Conexion con = new Conexion();
+			Conexion con = new Conexion();
 			ResultSet rs=null;
+			String sql="Select * from tb_perfil;";
+			String menu="";
+				
 			try
 			{
 				rs=con.Consulta(sql);
 				while(rs.next())
 				{
-					menu+="<li><a href=\""+rs.getString(3)+"\"accesskey="+rs.getInt(1)+">"+rs.getString(2)+
-					"</a></li>";
+					if(nperfil == rs.getInt(1)) {
+						menu+="<p class=\"puser\">Menu de " + rs.getString(2)+"</p>";
+					}
 				}
-				menu+="</ul>";
 			}
 			catch(SQLException e)
 			{
 				System.out.print(e.getMessage());
 			}
+			
+			menu+="<nav class=\"menu>\">";
+			sql="	SELECT * FROM tb_pagina pag, tb_perfil per, \"tb_perfilPagina\" pper WHERE pag.id_pag=pper.id_pag AND pper.id_per=per.id_per AND pper.id_per="+nperfil+";";
+
+			try
+			{
+				rs=con.Consulta(sql);
+				while(rs.next())
+				{
+					menu+="<a href=\""+rs.getString(3)+"\"accesskey="+rs.getInt(1)+">"+rs.getString(2)+
+					"</a>";
+				}
+			}
+			catch(SQLException e)
+			{
+				System.out.print(e.getMessage());
+			}
+			menu+="</nav>";
 			return menu;
 		}
 

@@ -22,8 +22,9 @@
 	%>
 	<jsp:forward page="login.jsp">
 		<jsp:param name="error"
-			value="Datos incorrectos.<br>Vuelva a intentarlo." />
+			value="Usuario o contrasena incorrectos<br>Vuelva a intentarlo" />
 	</jsp:forward>
+
 	<%
 	}
 	%>

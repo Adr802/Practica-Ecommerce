@@ -29,74 +29,74 @@ public class Conexion
 	{ 
 		return this.con; 
 	}
-	
+
 	public Conexion() {
-		
+
 		this.driver ="org.postgresql.Driver";
 		this.user="postgres";
 		this.pwd="root";
-		this.cadena="jdbc:postgresql://localhost:5432/db_catalogo";
+		this.cadena="jdbc:postgresql://localhost:5432/db_ecommerce";
 		this.con=this.crearConexion();
-		
+
 	}
-	
+
 	Connection crearConexion()
 	{
 		try {
 			Class.forName("org.postgresql.Driver");
-			}
-			catch (ClassNotFoundException e) {
-			
-			}
-		
+		}
+		catch (ClassNotFoundException e) {
+
+		}
+
 		try
 		{
 			Class.forName(getDriver()).newInstance();
 			Connection con=DriverManager.getConnection(getCadena(),getUser(),getPwd());
 			return con;
 		}
-	catch(Exception ee)
-	{
-		System.out.println("Error: " + ee.getMessage());
-		return null;
-	}
+		catch(Exception ee)
+		{
+			System.out.println("Error: " + ee.getMessage());
+			return null;
+		}
 	}
 
 
 	public String Ejecutar(String sql)
 	{
-	String error="";
-	try
-	{
-	St=getConexion().createStatement();
-	St.execute(sql);
-	error="Datos insertados";
-	}
-	catch(Exception ex)
-	{
-	error = ex.getMessage();
-	}
-	return(error);
+		String error="";
+		try
+		{
+			St=getConexion().createStatement();
+			St.execute(sql);
+			error="Datos insertados";
+		}
+		catch(Exception ex)
+		{
+			error = ex.getMessage();
+		}
+		return(error);
 	}
 
 
 
 	public ResultSet Consulta(String sql)
 	{
-	String error="";
-	ResultSet reg=null;
-	
-	try
-	{
-	St=getConexion().createStatement();
-	reg=St.executeQuery(sql);
-	
+		String error="";
+		ResultSet reg=null;
 
-	}
-	catch(Exception ee)
-	{
-	error = ee.getMessage();
-	}
-	return(reg);
+		try
+		{
+			St=getConexion().createStatement();
+			reg=St.executeQuery(sql);
+
+
+		}
+		catch(Exception ee)
+		{
+			error = ee.getMessage();
+		}
+		return(reg);
 	}
 }

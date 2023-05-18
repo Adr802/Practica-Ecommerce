@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <html lang="es">
 <head>
 <meta charset="utf-8">
@@ -21,46 +23,39 @@
 					href="login.jsp">Iniciar Sesion</a>
 			</nav>
 		</header>
+		
 		<div class="table_center">
-			<table border="1">
-				<form method="post" id="login-form" action="verificarLogin.jsp">
-					<tr>
-						<th colspan="2"><p>INICIAR SESION</p></th>
-					</tr>
-					<tr>
-						<td>Usuario:</td>
-						<td><input type="text" name="txtUser"></td>
-					</tr>
-					<tr>
-						<td>Contrase�a:</td>
-						<td><input type="password" name="txtPass"></td>
-					</tr>
-					<tr>
-						<td colspan="2"><input type="submit"></td>
-					</tr>
-					<tr>
-						<td colspan="2"><p>
-								�No tienes cuenta? <a href="registro.jsp">Registrate</a>
-							</p>
-					</tr>
-
-				</form>
-
-			</table>
+			<form method="post" id="login-form" action="verificarLogin.jsp">
+				<h3>INICIAR SESION</h3>
+				<p>Usuario: </p><input type="text" name="txtUser" required="required"> 
+				<p>Contraseña: </p><input type="password" name="txtPass" required="required"> 
+				<input type="submit" value="Iniciar Sesion" id="btnIniciar">
+				<p>¿No tienes cuenta? <a href="registro.jsp">Registrate</a></p>
+			</form>
 		</div>
-
+		
+		<%
+		String error = request.getParameter("error");
+		if (error != null && !error.isEmpty()) {
+		%>
+		<div class="error-message">
+			<%=error%>
+		</div>
+		<%
+		}
+		%>
+		
 		<footer>
 			<div id="div_logos">
 				<a href="https://www.facebook.com/" target="_blank"><img
 					src="img/facebook.png" class="logo-footer"></a> <a
 					href="https://www.instagram.com/" target="_blank"><img
 					src="img/instagram.png" class="logo-footer"></a> <a
-					href="https://wa.me/593986987431?text=¡Hola!%20Quiero%20información%20sobre%20un%20producto."
+					href="https://wa.me/593986987431?text=Â¡Hola!%20Quiero%20informaciÃ³n%20sobre%20un%20producto."
 					target="_blank"><img src="img/whatsapp.png" class="logo-footer"></a>
 				<a href="https://www.tiktok.com/es/" target="_blank"><img
 					src="img/tiktok.png" class="logo-footer"></a>
 			</div>
-
 		</footer>
 	</main>
 </body>
